@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 
+const CONTACT_EMAIL = "patricia.lisbona.ci@gmail.com";
+
 function SectionMark() {
   return (
     <svg
@@ -15,7 +17,7 @@ function SectionMark() {
         <linearGradient id="section-mark-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" style={{ stopColor: "#D8B47A" }} />
           <stop offset="50%" style={{ stopColor: "#D9A48F" }} />
-          <stop offset="100%" style={{ stopColor: "#B97A94" }} />
+          <stop offset="100%" style={{ stopColor: "#C98A94" }} />
         </linearGradient>
       </defs>
       <g transform="translate(50,50) scale(2)">
@@ -111,7 +113,9 @@ function SectionMark() {
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
+  const [isCarouselHovered, setIsCarouselHovered] = useState(false);
+  const [isCarouselFocused, setIsCarouselFocused] = useState(false);
+  const isCarouselPlaying = !isCarouselHovered && !isCarouselFocused;
   const testimonials = [
     {
       quote:
@@ -144,53 +148,23 @@ function App() {
   ];
 
   useEffect(() => {
+    if (!isCarouselPlaying) return undefined;
+
     const intervalId = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 7000);
 
     return () => clearInterval(intervalId);
-  }, [testimonials.length]);
+  }, [isCarouselPlaying, testimonials.length]);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const smoothScroll = (elementId) => {
-    const element = document.getElementById(elementId);
-    if (!element) return;
-    const nav = document.querySelector(".nav");
-    const navOffset = nav ? nav.offsetHeight + 24 : 24;
-    const startPosition = window.pageYOffset;
-    const targetPosition = Math.max(
-      element.getBoundingClientRect().top + window.pageYOffset - navOffset,
-      0
-    );
-    const distance = targetPosition - startPosition;
-    const duration = 1500;
-    let start = null;
-
-    function animation(currentTime) {
-      if (start === null) start = currentTime;
-      const timeElapsed = currentTime - start;
-      const progress = Math.min(timeElapsed / duration, 1);
-
-      window.scrollTo(0, startPosition + distance * progress);
-
-      if (timeElapsed < duration) {
-        requestAnimationFrame(animation);
-      }
-    }
-
-    requestAnimationFrame(animation);
-    if (isMenuOpen) {
-      setIsMenuOpen(false);
-    }
+    setIsMenuOpen((isOpen) => !isOpen);
   };
 
   return (
     <div className="App">
       <video
-        src={require("./Video de WhatsApp 2025-07-24 a las 13.16.16_c3a1a7f7.mp4")}
+        src={require("./video-fondo-optimizado.mp4")}
         autoPlay
         loop
         muted
@@ -207,10 +181,10 @@ function App() {
               alt="Isotipo de Patricia Lisbona"
             />
             <div className="logo-text-content">
-              <h2 className="logo-title">
+              <span className="logo-title">
                 Patricia <br />
                 Lisbona
-              </h2>
+              </span>
             </div>
           </a>
         </div>
@@ -221,47 +195,32 @@ function App() {
         >
           <a
             href="#inicio"
-            onClick={(e) => {
-              e.preventDefault();
-              smoothScroll("inicio");
-            }}
+            onClick={() => setIsMenuOpen(false)}
           >
             INICIO
           </a>
           <a
             href="#acerca-de"
-            onClick={(e) => {
-              e.preventDefault();
-              smoothScroll("acerca-de");
-            }}
+            onClick={() => setIsMenuOpen(false)}
           >
             SOBRE MÍ
           </a>
           <a
             href="#servicios"
-            onClick={(e) => {
-              e.preventDefault();
-              smoothScroll("servicios");
-            }}
+            onClick={() => setIsMenuOpen(false)}
           >
             SERVICIOS
           </a>
           <a
             href="#testimonios"
-            onClick={(e) => {
-              e.preventDefault();
-              smoothScroll("testimonios");
-            }}
+            onClick={() => setIsMenuOpen(false)}
           >
             TESTIMONIOS{" "}
           </a>
 
           <a
             href="#contacta"
-            onClick={(e) => {
-              e.preventDefault();
-              smoothScroll("contacta");
-            }}
+            onClick={() => setIsMenuOpen(false)}
           >
             CONTACTA
           </a>
@@ -285,20 +244,29 @@ function App() {
         {/* Hero Section */}
         <section id="inicio" className="hero" aria-labelledby="inicio-title">
           <div className="hero-content">
-            <h1 id="inicio-title" className="logo-subtitle">
-              Coaching con enfoque en Indagación Compasiva y Mindfulness
-            </h1>
+            <p className="hero-credential">
+              Practicante Certificada en Indagación Compasiva
+            </p>
+            <img
+              src={`${process.env.PUBLIC_URL}/CIPracticanteCertificado.webp`}
+              width="175"
+              height="175"
+              alt="Acreditación de practicante certificada en Compassionate Inquiry"
+              className="hero-image"
+              fetchPriority="high"
+              decoding="async"
+            />
+            <h1 id="inicio-title">Experta en Coaching y Mindfulness</h1>
             <p>
-              Acompañamiento de Patricia Lisbona para procesos de
+              Acompañamiento para procesos de
               autoconocimiento, presencia, inteligencia emocional y bienestar.
             </p>
-            <button
+            <a
               className="cta-button"
-              type="button"
-              onClick={() => smoothScroll("acerca-de")}
+              href="#acerca-de"
             >
               Descubre cómo puedo ayudarte
-            </button>
+            </a>
           </div>
         </section>
 
@@ -306,18 +274,18 @@ function App() {
         <section id="acerca-de" className="about" aria-labelledby="acerca-title">
         <h2 id="acerca-title">Sobre mí</h2>
         <p>
-          Soy Patricia Lisbona, Experta en Coaching con Inteligencia Emocional
+          Soy Patricia Lisbona, Practicante Certificada en Compassionate
+          Inquiry, formación creada por el Dr. Gabor Maté y Sat Dharam Kaur.
+        </p>
+        <p>
+           Experta en Coaching con Inteligencia Emocional
           por el Grupo Emociona, spin off de la Universidad de Granada. Experta
           en Mindfulness en Desarrollo Personal y Educación Consciente por la
           Universidad de Almería. Primer nivel de Psych-K (kinesiología
           psicológica). Formada por profesionales de la talla de Joe Dispenza y
           Sergi Torres.
         </p>
-        <p>
-          Actualmente me encuentro camino a la Certificación en Compassionate
-          Inquiry, formación creada por el Dr. Gabor Maté y Sat Dharam Kaur,
-          después de dos años en esta formación.
-        </p>
+        
         <p>
           Compassionate Inquiry o Indagación Compasiva es un enfoque
           psicoterapéutico creado por el Dr. Gabor Maté a lo largo de varias
@@ -383,7 +351,7 @@ function App() {
               auténtica de ti mismo, lo que abre la puerta a cambios reales y
               sostenibles.
             </p>
-            <p><strong>¿Qué puedes encontrar en estas sesiones?</strong></p>
+            <p className="sessions-question"><strong>¿Qué puedes encontrar en estas sesiones?</strong></p>
             <ul>
               <li>Un espacio donde sentirte visto, escuchado y comprendido.</li>
               <li>Un proceso que te ayuda a conectar con tu verdad interna sin juicio.</li>
@@ -403,7 +371,18 @@ function App() {
       {/* Testimonios Section */}
       <section id="testimonios" className="features" aria-labelledby="testimonios-title">
         <h2 id="testimonios-title">Testimonios</h2>
-        <div className="testimonials-carousel" aria-live="polite">
+        <div
+          className="testimonials-carousel"
+          aria-live={isCarouselPlaying ? "off" : "polite"}
+          onMouseEnter={() => setIsCarouselHovered(true)}
+          onMouseLeave={() => setIsCarouselHovered(false)}
+          onFocus={() => setIsCarouselFocused(true)}
+          onBlur={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget)) {
+              setIsCarouselFocused(false);
+            }
+          }}
+        >
           <div
             className="testimonials-track"
             style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
@@ -412,6 +391,7 @@ function App() {
               <div
                 className="testimonial-slide"
                 key={`${testimonial.name}-${index}`}
+                aria-hidden={currentTestimonial !== index}
               >
                 <div className="feature-card testimonial-card">
                   <em>{testimonial.quote}</em>
@@ -446,11 +426,9 @@ function App() {
           Si tienes alguna pregunta o quieres saber más sobre mis servicios, no
           dudes en contactar conmigo.
         </p>
-        <a href="mailto:info@patricialisbona.es">info@patricialisbona.es</a>
-
         <div className="social-icons">
           <a
-            href="https://www.instagram.com/coachingmindfulpatricialisbona/"
+            href="https://www.instagram.com/patricialisbonacoach/"
             target="_blank"
             rel="noopener noreferrer"
             className="social-icon"
@@ -488,6 +466,37 @@ function App() {
               <path
                 d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"
                 fill="currentColor"
+              />
+            </svg>
+          </a>
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="social-icon"
+            aria-label="Enviar email a Patricia Lisbona"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <rect
+                x="3"
+                y="5"
+                width="18"
+                height="14"
+                rx="2"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <path
+                d="m3 7 9 6 9-6"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </a>
