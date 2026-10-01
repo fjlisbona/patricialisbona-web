@@ -1,18 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.bf3f9dc6.css",
-    "main.js": "/static/js/main.db3a0975.js",
+    "main.css": "/static/css/main.4d9d13a6.css",
+    "main.js": "/static/js/main.e925a8dc.js",
     "static/js/453.ad6eb26e.chunk.js": "/static/js/453.ad6eb26e.chunk.js",
-    "static/media/Video de WhatsApp 2025-07-24 a las 13.16.16_c3a1a7f7.mp4": "/static/media/Video de WhatsApp 2025-07-24 a las 13.16.16_c3a1a7f7.434ed445ce3e33b265c3.mp4",
-    "static/media/CIPracticanteCertificado.png": "/static/media/CIPracticanteCertificado.c7e3eff4b47d5bf95aac.png",
+    "static/media/video-fondo-optimizado.mp4": "/static/media/video-fondo-optimizado.fd9979eb4e7a25f84dd4.mp4",
     "static/media/isotipo-patricia-lisbona.png": "/static/media/isotipo-patricia-lisbona.a55ce16aef86586313e5.png",
     "index.html": "/index.html",
-    "main.bf3f9dc6.css.map": "/static/css/main.bf3f9dc6.css.map",
-    "main.db3a0975.js.map": "/static/js/main.db3a0975.js.map",
+    "main.4d9d13a6.css.map": "/static/css/main.4d9d13a6.css.map",
+    "main.e925a8dc.js.map": "/static/js/main.e925a8dc.js.map",
     "453.ad6eb26e.chunk.js.map": "/static/js/453.ad6eb26e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bf3f9dc6.css",
-    "static/js/main.db3a0975.js"
+    "static/css/main.4d9d13a6.css",
+    "static/js/main.e925a8dc.js"
   ]
 }
