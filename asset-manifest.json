@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.0a18e46c.css",
-    "main.js": "/static/js/main.974cf4b6.js",
+    "main.js": "/static/js/main.7f756308.js",
     "static/js/206.d60a4c88.chunk.js": "/static/js/206.d60a4c88.chunk.js",
     "static/media/fondo-h264-balanced.mp4": "/static/media/fondo-h264-balanced.6d7c7a4eb97e757ad24f.mp4",
     "static/media/fondo-estatico.webp": "/static/media/fondo-estatico.021ac6979bae5e98a67e.webp",
@@ -10,6 +10,6 @@
   },
   "entrypoints": [
     "static/css/main.0a18e46c.css",
-    "static/js/main.974cf4b6.js"
+    "static/js/main.7f756308.js"
   ]
 }
