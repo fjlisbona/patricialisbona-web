@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/static/css/main.07537277.css",
-    "main.js": "/static/js/main.71399108.js",
+    "main.js": "/static/js/main.0252f1e6.js",
     "static/js/453.ad6eb26e.chunk.js": "/static/js/453.ad6eb26e.chunk.js",
-    "static/media/fondo-animado.webp": "/static/media/fondo-animado.40541fd767fb9debbe52.webp",
+    "static/media/fondo-animado.webp": "/static/media/fondo-animado.c8a5e025782a206261e2.webp",
     "static/media/isotipo-patricia-lisbona.png": "/static/media/isotipo-patricia-lisbona.a55ce16aef86586313e5.png",
     "static/media/fondo-estatico.webp": "/static/media/fondo-estatico.021ac6979bae5e98a67e.webp",
     "index.html": "/index.html",
     "main.07537277.css.map": "/static/css/main.07537277.css.map",
-    "main.71399108.js.map": "/static/js/main.71399108.js.map",
+    "main.0252f1e6.js.map": "/static/js/main.0252f1e6.js.map",
     "453.ad6eb26e.chunk.js.map": "/static/js/453.ad6eb26e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.07537277.css",
-    "static/js/main.71399108.js"
+    "static/js/main.0252f1e6.js"
   ]
 }
