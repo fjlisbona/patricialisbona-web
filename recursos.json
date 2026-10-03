@@ -1,0 +1,52 @@
+[
+  {
+    "url": "https://patricialisbona.es/CIPracticanteCertificado.avif",
+    "archivo": "CIPracticanteCertificado.avif",
+    "bytes": 7339
+  },
+  {
+    "url": "https://patricialisbona.es/CIPracticanteCertificado.webp",
+    "archivo": "CIPracticanteCertificado.webp",
+    "bytes": 17248
+  },
+  {
+    "url": "https://patricialisbona.es/favicon.ico",
+    "archivo": "favicon.ico",
+    "bytes": 34758
+  },
+  {
+    "url": "https://patricialisbona.es/fonts/playfair-display-latin.woff2",
+    "archivo": "fonts/playfair-display-latin.woff2",
+    "bytes": 38404
+  },
+  {
+    "url": "https://patricialisbona.es/logo192.png",
+    "archivo": "logo192.png",
+    "bytes": 25677
+  },
+  {
+    "url": "https://patricialisbona.es/logo512.png",
+    "archivo": "logo512.png",
+    "bytes": 88638
+  },
+  {
+    "url": "https://patricialisbona.es/manifest.json",
+    "archivo": "manifest.json",
+    "bytes": 673
+  },
+  {
+    "url": "https://patricialisbona.es/static/media/fondo-estatico.021ac6979bae5e98a67e.webp",
+    "archivo": "static/media/fondo-estatico.021ac6979bae5e98a67e.webp",
+    "bytes": 18984
+  },
+  {
+    "url": "https://patricialisbona.es/static/media/fondo-h264-balanced.6d7c7a4eb97e757ad24f.mp4",
+    "archivo": "static/media/fondo-h264-balanced.6d7c7a4eb97e757ad24f.mp4",
+    "bytes": 843415
+  },
+  {
+    "url": "https://patricialisbona.es/static/media/isotipo-patricia-lisbona.ab2570d955323b50b23b.webp",
+    "archivo": "static/media/isotipo-patricia-lisbona.ab2570d955323b50b23b.webp",
+    "bytes": 4816
+  }
+]
